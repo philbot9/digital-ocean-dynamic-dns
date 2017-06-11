@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+
+const program = require('commander')
+const R = require('ramda')
+
+const updateDomain = require('../index')
+
+program
+  .option('-t, --token <token>', 'Your Digital Ocean API token')
+  .option(
+    '-a, --address <address>',
+    'The address the DNS record should direct to. Uses the public IP if none is provided.'
+  )
+  .option(
+    '-d, --domainName <domainName>',
+    'The domain name itself (<domainName>.tld)'
+  )
+  .option(
+    '-r, --recordName <recordName>',
+    'The name of the comain record (<recordName>.domain.tld)'
+  )
+  .option(
+    '-y, --recordType <recordType>',
+    'The type of DNS record (A, CNAME, TXT, ...). Defaults to A.'
+  )
+  .option(
+    '-l, --recordTtl <recordTtl>',
+    'The time to live for the record, in seconds. Deafults to 1800.'
+  )
+  .option(
+    '-p, --recordPriority <recordPriority>',
+    'The priority of the host (SRV and MX records only).'
+  )
+  .option(
+    '-o, --recordPort <recordPort>',
+    'The port that the service is accessible on (SRV records only).'
+  )
+  .option(
+    '-w, --recordWeight <recordWeight>',
+    'The weight of records with the same priority (SRV records only).'
+  )
+  .option(
+    '-c, --create',
+    'Create a new domain record if none exists. Creates the domain RECORD, not a domain.'
+  )
+  .parse(process.argv)
+
+const opts = R.pick(
+  [
+    'token',
+    'address',
+    'domainName',
+    'recordName',
+    'recordType',
+    'recordTtl',
+    'recordPriority',
+    'recordPort',
+    'recordWeight',
+    'create'
+  ],
+  program
+)
+
+updateDomain(opts)
