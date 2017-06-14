@@ -45,7 +45,7 @@ $ dodd -t abc123def456ghi789 -d example.com -r home --create
 
 ## Run automatically
 
-On Linux you can run `dodd` at boot and then repeatedly at a certain interval using **systemd**. Set up the command in `systemd/dodd.service` and set a time interal in `systemd/dodd.timer`. Then copy both to `/etc/systemd/system/` and start them with
+On Linux you can run `dodd` at boot and then repeatedly at a certain interval using **systemd**. Set up the command in [`systemd/dodd.service`](systemd/dodd.service) and set a time interal in [`systemd/dodd.timer`](systemd/dodd.timer). Then copy both to `/etc/systemd/system/` and start them with
 
 ```
 $ systemctl start dodd.service
@@ -61,7 +61,7 @@ $ systemctl enable dodd.timer
 
 The above will run `dodd` with the parameters defined in `dodd.service` after boot, as soon as the network is available. After that it will run the same command regularly as defined by the interval in the `dodd.timer` file (hourly by default).
 
-You can veryify the `dodd` timer is active by running `systemctl list-timers`.
+You can veryify that the `dodd` timer is active by running `systemctl list-timers`.
 
 ## More Options
 
