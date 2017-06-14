@@ -1,6 +1,8 @@
 # digital-ocean-dynamic-dns
 Dynamically update Domain Records on Digital Ocean.
 
+[![Build Status](https://travis-ci.org/philbot9/digital-ocean-dynamic-dns.svg?branch=master)](https://travis-ci.org/philbot9/digital-ocean-dynamic-dns)
+
 ## Installation
 
 ```
