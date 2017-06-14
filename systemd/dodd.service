@@ -1,0 +1,11 @@
+[Unit]
+Wants=network-online.target
+After=network-online.target
+Description=Digital Ocean Dynamic DNS (dodds)
+
+[Service]
+Type=oneshot
+ExecStart=dodd -t <DigitalOceanApiToken> -d <yourDomain.tld> -r <domainRecordTitle>
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Run dodd automatically
+
+[Timer]
+# Run every hour, see https://www.freedesktop.org/software/systemd/man/systemd.time.html
+OnCalendar=hourly
+ 
+[Install]
+WantedBy=timers.target
