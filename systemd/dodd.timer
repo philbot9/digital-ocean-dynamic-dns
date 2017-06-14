@@ -2,7 +2,8 @@
 Description=Run dodd automatically
 
 [Timer]
-# Run every hour, see https://www.freedesktop.org/software/systemd/man/systemd.time.html
+# Set up the time interval at which to run, see https://www.freedesktop.org/software/systemd/man/systemd.time.html
+# By default it runs every hour.
 OnCalendar=hourly
  
 [Install]

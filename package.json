@@ -2,16 +2,31 @@
   "name": "digital-ocean-dynamic-dns",
   "version": "1.0.0",
   "description": "Dynamically update Domain Records on Digital Ocean",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "test:watch": "npm test -- --watch"
-  },
-  "keywords": [],
   "author": "Philip Klostermann <philip.klostermann@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+git@github.com:philbot9/digital-ocean-dynamic-dns.git"
+  },
+  "homepage": "https://github.com/philbot9/digital-ocean-dynamic-dns#readme",
+  "keywords": [
+    "dynamic",
+    "dns",
+    "digital",
+    "ocean",
+    "dynDns",
+    "domain",
+    "ip",
+    "do"
+  ],
+  "main": "index.js",
   "bin": {
     "dodd": "./bin/dodd"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "preversion": "npm run test"
   },
   "dependencies": {
     "chalk": "^1.1.3",
@@ -30,6 +45,17 @@
   "jest": {
     "testMatch": [
       "**/*.test.js"
-    ]
+    ],
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   }
 }

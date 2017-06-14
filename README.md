@@ -37,7 +37,7 @@ $ dodd -t abc123def456ghi789 -d example.com -r home
 
 ### Create
 
-If the `-c` or `--create` flag is set and the record does not exist under the given domain, it will be created automatically.
+If the `-c` or `--create` flag is set and the record does not exist under the given domain, it will be created.
 
 ```
 $ dodd -t abc123def456ghi789 -d example.com -r home --create
