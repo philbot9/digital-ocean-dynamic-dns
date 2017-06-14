@@ -26,7 +26,7 @@
   "scripts": {
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "preversion": "npm run test"
+    "prepublish": "npm run test"
   },
   "dependencies": {
     "chalk": "^1.1.3",
