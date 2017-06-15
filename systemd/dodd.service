@@ -6,7 +6,7 @@ Description=Digital Ocean Dynamic DNS (dodd)
 [Service]
 Type=oneshot
 # Set up your dodd command below. You can run "dodd --help" for reference.
-ExecStart=dodd -t <DigitalOceanApiToken> -d <yourDomain.tld> -r <domainRecordTitle>
+ExecStart=/usr/bin/dodd -t <DigitalOceanApiToken> -d <yourDomain.tld> -r <domainRecordTitle>
 
 [Install]
 WantedBy=multi-user.target
