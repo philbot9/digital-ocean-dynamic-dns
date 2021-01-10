@@ -35,11 +35,9 @@
     "fs-extra": "^9.0.1",
     "node-fetch": "^2.6.1",
     "public-ip": "^2.3.5",
-    "ramda": "^0.24.1",
-    "request": "^2.88.2"
+    "ramda": "^0.24.1"
   },
   "devDependencies": {
-    "@types/jest": "^19.2.4",
     "jest": "^26.6.3"
   },
   "jest": {
