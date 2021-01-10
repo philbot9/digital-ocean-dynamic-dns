@@ -1,4 +1,5 @@
 # digital-ocean-dynamic-dns
+
 Dynamically update Domain Records on Digital Ocean.
 
 [![Build Status](https://travis-ci.org/philbot9/digital-ocean-dynamic-dns.svg?branch=master)](https://travis-ci.org/philbot9/digital-ocean-dynamic-dns)
@@ -45,6 +46,30 @@ If the `-c` or `--create` flag is set and the record does not exist under the gi
 $ dodd -t abc123def456ghi789 -d example.com -r home --create
 ```
 
+### Config file
+
+Using the `-f` or `--file` option, all parameters can be set from a JSON file. It's possible to specify multiple domains when the JSON file contains an array of domains. Any arguments passed on the command line will also be applied but will be overridden by the file contents.
+
+```
+$ dodd -t abc123def456ghi789 -f /path/to/file.json
+```
+
+`/path/to/file.json`
+
+```
+[
+  {
+    "domainName": "domain.tld",
+    "recordName": "record"
+  },
+  {
+    "token": "xyz987uvw654qrs321",
+    "domainName": "other.tld",
+    "recordName": "test"
+  }
+]
+```
+
 ## Run automatically
 
 On Linux you can run `dodd` at boot and then repeatedly at a certain interval using **systemd**. Set up the command in [`systemd/dodd.service`](systemd/dodd.service) and set a time interal in [`systemd/dodd.timer`](systemd/dodd.timer). Then copy both to `/etc/systemd/system/` and start them with
@@ -89,4 +114,3 @@ $ dodd --help
     -c, --create                           Create a new domain record if none exists. Creates the domain RECORD, not a domain.
 
 ```
-

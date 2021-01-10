@@ -3,10 +3,14 @@
 const program = require('commander')
 const R = require('ramda')
 
-const updateDomain = require('../index')
+const execute = require('../index')
 
 program
   .option('-t, --token <token>', 'Your Digital Ocean API token')
+  .option(
+    '-f, --file </path/to/file.json>',
+    'JSON fail containing domain information'
+  )
   .option(
     '-a, --address <address>',
     'The address the DNS record should direct to. Uses the public IP if none is provided.'
@@ -48,6 +52,7 @@ program
 const opts = R.pick(
   [
     'token',
+    'file',
     'address',
     'domainName',
     'recordName',
@@ -61,4 +66,4 @@ const opts = R.pick(
   program
 )
 
-updateDomain(opts)
+execute(opts)
