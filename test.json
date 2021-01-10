@@ -1,0 +1,11 @@
+[
+  {
+    "domainName": "klostermann.ca",
+    "recordName": "home"
+  },
+  {
+    "domainName": "klostermann.ca",
+    "recordName": "git",
+    "create": true
+  }
+]

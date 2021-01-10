@@ -9,9 +9,10 @@ module.exports = async args => {
     process.exit(1)
   }
 
+  const updater = updateDomain()
   for (const domain of domains) {
     try {
-      await updateDomain(domain)
+      await updater(domain)
     } catch (e) {
       process.exit(1)
     }
